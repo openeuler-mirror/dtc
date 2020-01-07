@@ -1,6 +1,6 @@
 Name:         dtc
 Version:      1.4.7
-Release:      2
+Release:      3
 Summary:      Device tree compiler
 License:      GPLv2+
 URL:          https://devicetree.org/
@@ -11,7 +11,6 @@ BuildRequires: python2-devel python2-setuptools
 Provides:      libfdt
 Obsoletes:     libfdt
 
-Patch1:       use-tx-as-the-type-specifier-instead-of-zx.patch
 
 %description
 The devicetree is a data structure for describing hardware. Rather than hard coding
@@ -76,5 +75,11 @@ This package provides python2 bindings for libfdt
 %doc Documentation/manual.txt
 
 %changelog
+* Tue Jan  7 2020 JeanLeo<liujianliu.liu@huawei.com> - 1.4.7-3
+- Type:bugfix
+- ID:NA
+- SUG:NA
+- DESC:update software package
+
 * Thu Sep 19 2019 openEuler Buildteam <buildteam@openeuler.org> - 1.4.7-2
 - Package init
