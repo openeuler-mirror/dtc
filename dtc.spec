@@ -1,13 +1,15 @@
+%define _wrong_version_format_terminate_build 0
+
 Name:         dtc
-Version:      1.4.7
-Release:      3
+Version:      1.6.0
+Release:      1
 Summary:      Device tree compiler
 License:      GPLv2+
 URL:          https://devicetree.org/
-Source0:      https://ftp.kernel.org/pub/software/utils/%{name}/%{name}-%{version}.tar.xz
+Source0:      https://ftp.kernel.org/pub/software/utils/%{name}/v%{version}.tar.xz
 
 BuildRequires: gcc make git flex bison swig
-BuildRequires: python2-devel python2-setuptools
+BuildRequires: python3-devel python3-setuptools
 Provides:      libfdt
 Obsoletes:     libfdt
 
@@ -29,13 +31,13 @@ Obsoletes:    libfdt-static libfdt-devel
 %description  devel
 This package provides development files for dtc.
 
-%package      -n python2-libfdt
-Summary:      Python 2 bindings for device tree library
-%{?python_provide:%python_provide python2-libfdt}
+%package      -n python3-libfdt
+Summary:      Python 3 bindings for device tree library
+%{?python_provide:%python_provide python3-libfdt}
 Requires:     %{name} = %{version}-%{release}
 
-%description  -n python2-libfdt
-This package provides python2 bindings for libfdt
+%description  -n python3-libfdt
+This package provides python3 bindings for libfdt
 
 %package_help
 
@@ -46,7 +48,8 @@ This package provides python2 bindings for libfdt
 %make_build
 
 %install
-%make_install SETUP_PREFIX=$RPM_BUILD_ROOT/usr LIBDIR=%{_libdir} PREFIX=/usr
+make install DESTDIR=$RPM_BUILD_ROOT PREFIX=$RPM_BUILD_ROOT/usr \
+             LIBDIR=%{_libdir} BINDIR=%{_bindir} INCLUDEDIR=%{_includedir} V=1
 
 %pre
 
@@ -68,13 +71,19 @@ This package provides python2 bindings for libfdt
 %{_includedir}/*
 %{_libdir}/libfdt.a
 
-%files -n python2-libfdt
-%{python2_sitearch}/*
+%files -n python3-libfdt
+%{python3_sitearch}/*
 
 %files help
 %doc Documentation/manual.txt
 
 %changelog
+* Thu Apr 23 2020 chengquan3<chengquan3@huawei.com> - 1.4.7-3.h1
+- Type:enhancement
+- ID:NA
+- SUG:NA
+- DESC:Update software to v1.6.0
+
 * Tue Jan  7 2020 JeanLeo<liujianliu.liu@huawei.com> - 1.4.7-3
 - Type:bugfix
 - ID:NA
