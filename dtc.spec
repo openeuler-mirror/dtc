@@ -2,7 +2,7 @@
 
 Name:         dtc
 Version:      1.6.0
-Release:      1
+Release:      2
 Summary:      Device tree compiler
 License:      GPLv2+
 URL:          https://devicetree.org/
@@ -78,6 +78,12 @@ make install DESTDIR=$RPM_BUILD_ROOT PREFIX=$RPM_BUILD_ROOT/usr \
 %doc Documentation/manual.txt
 
 %changelog
+* Tue Aug 21 2020 openEuler Buildteam <buildteam@openeuler.org> - 1.6.0-2
+- Type:rebuild
+- ID:NA
+- SUG:NA
+- DESC:rebuild for requirement package update
+
 * Thu Apr 23 2020 chengquan3<chengquan3@huawei.com> - 1.4.7-3.h1
 - Type:enhancement
 - ID:NA
