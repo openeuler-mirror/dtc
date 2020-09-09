@@ -2,11 +2,11 @@
 
 Name:         dtc
 Version:      1.6.0
-Release:      1
+Release:      2
 Summary:      Device tree compiler
 License:      GPLv2+
 URL:          https://devicetree.org/
-Source0:      https://ftp.kernel.org/pub/software/utils/%{name}/v%{version}.tar.xz
+Source0:      https://www.kernel.org/pub/software/utils/%{name}/%{name}-%{version}.tar.xz
 
 BuildRequires: gcc make git flex bison swig
 BuildRequires: python3-devel python3-setuptools
@@ -78,6 +78,12 @@ make install DESTDIR=$RPM_BUILD_ROOT PREFIX=$RPM_BUILD_ROOT/usr \
 %doc Documentation/manual.txt
 
 %changelog
+* Wed Sep 9 2020 wangchen<wangchen137@huawei.com> - 1.6.0-2
+- Type:enhancement
+- ID:NA
+- SUG:NA
+- DESC:Modify the URL of Source0
+
 * Thu Apr 23 2020 chengquan3<chengquan3@huawei.com> - 1.4.7-3.h1
 - Type:enhancement
 - ID:NA
