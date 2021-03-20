@@ -1,0 +1,25 @@
+From 1c3f9fea2f808ae9eb481bc344ff589b42a106a7 Mon Sep 17 00:00:00 2001
+From: Yangyang Shen <shenyangyang4@huawei.com>
+Date: Sat, 20 Mar 2021 16:40:13 +0800
+Subject: [PATCH] openEuler add secure compile option in Makefile
+
+---
+ Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index f02aa19..a37a2db 100644
+--- a/Makefile
++++ b/Makefile
+@@ -20,6 +20,8 @@ CONFIG_LOCALVERSION =
+ # See libfdt_internal.h for details
+ ASSUME_MASK ?= 0
+ 
++EXTRA_CFLAGS += -D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wl,-z,now -fPIE
++LDFLAGS += -Wl,-z,now -pie
+ CPPFLAGS = -I libfdt -I . -DFDT_ASSUME_MASK=$(ASSUME_MASK)
+ WARNINGS = -Wall -Wpointer-arith -Wcast-qual -Wnested-externs \
+ 	-Wstrict-prototypes -Wmissing-prototypes -Wredundant-decls -Wshadow
+-- 
+2.23.0
+
