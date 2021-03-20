@@ -2,7 +2,7 @@
 
 Name:         dtc
 Version:      1.6.0
-Release:      2
+Release:      3
 Summary:      Device tree compiler
 License:      GPLv2+
 URL:          https://devicetree.org/
@@ -12,6 +12,8 @@ BuildRequires: gcc make git flex bison swig
 BuildRequires: python3-devel python3-setuptools
 Provides:      libfdt
 Obsoletes:     libfdt
+
+Patch1:        openEuler-add-secure-compile-option-in-Makefile.patch
 
 
 %description
@@ -78,6 +80,12 @@ make install DESTDIR=$RPM_BUILD_ROOT PREFIX=$RPM_BUILD_ROOT/usr \
 %doc Documentation/manual.txt
 
 %changelog
+* Sat Mar 20 2021 shenyangyang<shenyangyang4@huawei.com> - 1.6.0-3
+- Type:enhancement
+- ID:NA
+- SUG:NA
+- DESC:Add secure compile option in Makefile
+
 * Wed Sep 9 2020 wangchen<wangchen137@huawei.com> - 1.6.0-2
 - Type:enhancement
 - ID:NA
