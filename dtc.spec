@@ -2,13 +2,13 @@
 
 Name:         dtc
 Version:      1.6.0
-Release:      3
+Release:      4
 Summary:      Device tree compiler
 License:      GPLv2+
 URL:          https://devicetree.org/
 Source0:      https://www.kernel.org/pub/software/utils/%{name}/%{name}-%{version}.tar.xz
 
-BuildRequires: gcc make git flex bison swig
+BuildRequires: gcc make flex bison swig
 BuildRequires: python3-devel python3-setuptools
 Provides:      libfdt
 Obsoletes:     libfdt
@@ -44,7 +44,7 @@ This package provides python3 bindings for libfdt
 %package_help
 
 %prep
-%autosetup -n %{name}-%{version} -p1 -Sgit
+%autosetup -n %{name}-%{version} -p1
 
 %build
 %make_build
@@ -80,6 +80,9 @@ make install DESTDIR=$RPM_BUILD_ROOT PREFIX=$RPM_BUILD_ROOT/usr \
 %doc Documentation/manual.txt
 
 %changelog
+* Fri Jul 30 2021 chenyanpanHW <chenyanpan@huawei.com> - 1.6.0-4
+- DESC: delete -Sgit from %autosetup, and delete BuildRequires git
+
 * Sat Mar 20 2021 shenyangyang<shenyangyang4@huawei.com> - 1.6.0-3
 - Type:enhancement
 - ID:NA
