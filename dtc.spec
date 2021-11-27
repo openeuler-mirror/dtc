@@ -1,8 +1,8 @@
 %define _wrong_version_format_terminate_build 0
 
 Name:         dtc
-Version:      1.6.0
-Release:      3
+Version:      1.6.1
+Release:      1
 Summary:      Device tree compiler
 License:      GPLv2+
 URL:          https://devicetree.org/
@@ -80,6 +80,12 @@ make install DESTDIR=$RPM_BUILD_ROOT PREFIX=$RPM_BUILD_ROOT/usr \
 %doc Documentation/manual.txt
 
 %changelog
+* Sat Nov 27 2021 yangzhuangzhuang<yangzhuangzhuang1@huawei.com> - 1.6.1-1
+- Type:enhancement
+- ID:NA
+- SUG:NA
+- DESC:update version to 1.6.1
+
 * Sat Mar 20 2021 shenyangyang<shenyangyang4@huawei.com> - 1.6.0-3
 - Type:enhancement
 - ID:NA
