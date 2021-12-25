@@ -1,8 +1,8 @@
 %define _wrong_version_format_terminate_build 0
 
 Name:         dtc
-Version:      1.6.0
-Release:      4
+Version:      1.6.1
+Release:      1
 Summary:      Device tree compiler
 License:      GPLv2+
 URL:          https://devicetree.org/
@@ -80,6 +80,9 @@ make install DESTDIR=$RPM_BUILD_ROOT PREFIX=$RPM_BUILD_ROOT/usr \
 %doc Documentation/manual.txt
 
 %changelog
+* Sat Dec 25 2021 yangzhuangzhuang <yangzhuangzhuang1@huawei.com> 1.6.1-1
+- update version to 1.6.1
+
 * Fri Jul 30 2021 chenyanpanHW <chenyanpan@huawei.com> - 1.6.0-4
 - DESC: delete -Sgit from %autosetup, and delete BuildRequires git
 
