@@ -2,7 +2,7 @@
 
 Name:         dtc
 Version:      1.6.1
-Release:      1
+Release:      2
 Summary:      Device tree compiler
 License:      GPLv2+
 URL:          https://devicetree.org/
@@ -80,6 +80,9 @@ make install DESTDIR=$RPM_BUILD_ROOT PREFIX=$RPM_BUILD_ROOT/usr \
 %doc Documentation/manual.txt
 
 %changelog
+* Wed Oct 26 2022 yanglongkang<yanglongkang@h-partners.com> - 1.6.1-2
+- rebuild for next release
+
 * Sat Dec 25 2021 yangzhuangzhuang <yangzhuangzhuang1@huawei.com> 1.6.1-1
 - update version to 1.6.1
 
