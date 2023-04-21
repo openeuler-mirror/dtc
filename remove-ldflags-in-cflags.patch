@@ -1,0 +1,18 @@
+diff -up dtc-1.6.1/Makefile.orig2 dtc-1.6.1/Makefile
+--- dtc-1.6.1/Makefile.orig2	2023-04-21 18:28:46.693701292 +0800
++++ dtc-1.6.1/Makefile	2023-04-21 18:28:58.425735633 +0800
+@@ -20,12 +20,12 @@ CONFIG_LOCALVERSION =
+ # See libfdt_internal.h for details
+ ASSUME_MASK ?= 0
+ 
+-EXTRA_CFLAGS += -D_FORTIFY_SOURCE=2 -fstack-protector-strong -Wl,-z,now -fPIE
++EXTRA_CFLAGS += -D_FORTIFY_SOURCE=2 -fstack-protector-strong -fPIE
+ LDFLAGS += -Wl,-z,now -pie
+ CPPFLAGS = -I libfdt -I . -DFDT_ASSUME_MASK=$(ASSUME_MASK)
+ WARNINGS = -Wall -Wpointer-arith -Wcast-qual -Wnested-externs \
+ 	-Wstrict-prototypes -Wmissing-prototypes -Wredundant-decls -Wshadow
+-CFLAGS = -g -Os $(SHAREDLIB_CFLAGS) -Werror $(WARNINGS) $(EXTRA_CFLAGS)
++CFLAGS += -g -Os $(SHAREDLIB_CFLAGS) -Werror $(WARNINGS) $(EXTRA_CFLAGS)
+ 
+ BISON = bison
+ LEX = flex

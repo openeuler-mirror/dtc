@@ -2,7 +2,7 @@
 
 Name:         dtc
 Version:      1.6.1
-Release:      2
+Release:      3
 Summary:      Device tree compiler
 License:      GPLv2+
 URL:          https://devicetree.org/
@@ -14,6 +14,7 @@ Provides:      libfdt
 Obsoletes:     libfdt
 
 Patch1:        openEuler-add-secure-compile-option-in-Makefile.patch
+Patch2:        remove-ldflags-in-cflags.patch
 
 
 %description
@@ -47,9 +48,16 @@ This package provides python3 bindings for libfdt
 %autosetup -n %{name}-%{version} -p1
 
 %build
+%if "%toolchain" == "clang"
+    CFLAGS="$CFLAGS -Wno-error=cast-qual -Wno-error=missing-prototypes -Wno-error=unused-command-line-argument"
+%endif
+
 %make_build
 
 %install
+%if "%toolchain" == "clang"
+    CFLAGS="$CFLAGS -Wno-error=cast-qual -Wno-error=missing-prototypes -Wno-error=unused-command-line-argument"
+%endif
 make install DESTDIR=$RPM_BUILD_ROOT PREFIX=$RPM_BUILD_ROOT/usr \
              LIBDIR=%{_libdir} BINDIR=%{_bindir} INCLUDEDIR=%{_includedir} V=1
 
@@ -80,6 +88,9 @@ make install DESTDIR=$RPM_BUILD_ROOT PREFIX=$RPM_BUILD_ROOT/usr \
 %doc Documentation/manual.txt
 
 %changelog
+* Fri Apr 21 2023 jammyjellyfish <jammyjellyfish255@outlook.com> - 1.6.1-3
+- Fix clang build error
+
 * Wed Oct 26 2022 yanglongkang<yanglongkang@h-partners.com> - 1.6.1-2
 - rebuild for next release
 
